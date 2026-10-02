@@ -5,7 +5,7 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 2. Jenkinsfile configured with steps in repository
 3. EC2 Jenkins server to manage and run commands on server
 # Create an EC2 Instance and Install Jenkins
-1. ssh -i your-key.pem ubuntu@<EC2-PUBLIC-IP>
+1. ssh -i your-key.pem ubuntu@<ec2-ip>
 2. sudo apt update && sudo apt upgrade -y
 3. sudo apt install -y fontconfig openjdk-21-jre
 4. java -version
@@ -26,7 +26,7 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 # Allow port in EC2 Security groups
 1. Add jenkins port in inbound rules in SG
 # Open Jenkins on the browser
-1. http://<EC2-PUBLIC-IP>:jenkins-port
+1. http://<ec2-ip>:jenkins-port
 # Get the initial administrator password with:
 1. sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 2. Copy that password into the Jenkins setup screen
