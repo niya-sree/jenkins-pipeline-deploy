@@ -29,7 +29,7 @@ pipeline {
 
                     docker stop web-app || true
                     docker rm web-app || true
-                    docker run -d --name web-app -p 8080:80 nginx-app:latest
+                    docker run -d --name web-app -p 8081:80 nginx-app:latest
 
                 '''
             }

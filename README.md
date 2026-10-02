@@ -4,7 +4,8 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 1. GitHub repository with source code and configuration files
 2. Jenkinsfile configured with steps in repository
 3. Dockerfile to build docker image
-4. EC2 Jenkins server to manage and run commands on server
+4. .dockerignore file to avoid unnecessary file upload
+5. EC2 Jenkins server to manage and run commands on server
 # Create an EC2 Instance and Install Jenkins
 1. ssh -i your-key.pem ubuntu@ec2-ip
 2. sudo apt update && sudo apt upgrade -y
@@ -26,6 +27,7 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 2. sudo systemctl status jenkins
 # Allow port in EC2 Security groups
 1. Add jenkins port in inbound rules in SG
+2. Add application host port in inbound rules in SG
 # Open Jenkins on the browser
 1. http://ec2-ip:jenkins-port
 # Get the initial administrator password with:
