@@ -25,9 +25,17 @@ pipeline {
         
         stage('Test') {
             steps {
-                echo 'Running application tests...'
+                echo 'Testing Nginx cocntainer...'
 
-                sh 'docker run --rm nginx-app:latest npm test'
+                sh '''
+                    docker rm -f nginx-test 2>/dev/null || true
+                    
+                    docker run -d --name nginx-test -p 8082:80 nginx-app:latest
+                    sleep 3
+
+                    curl -f http://localhost:8082
+                    docker rm -f nginx-test 
+                '''
             }
         }
 
