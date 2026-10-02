@@ -3,7 +3,8 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 # Prequisites
 1. GitHub repository with source code and configuration files
 2. Jenkinsfile configured with steps in repository
-3. EC2 Jenkins server to manage and run commands on server
+3. Dockerfile to build docker image
+4. EC2 Jenkins server to manage and run commands on server
 # Create an EC2 Instance and Install Jenkins
 1. ssh -i your-key.pem ubuntu@ec2-ip
 2. sudo apt update && sudo apt upgrade -y
@@ -18,7 +19,7 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 3. sudo apt update && sudo apt install -y jenkins
 # Install Docker on the Jenkins server
 1. Add jenkins user to run Docker commands
-2. sudo usermod -aG docker ubuntu
+2. sudo usermod -aG docker ubuntu jenkins
 3. newgrp docker
 # Start Jenkins & Check the status
 1. sudo systemctl enable --now jenkins
@@ -49,13 +50,15 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 # verify the pipeline
 1. Then open the Jenkins dashboard and verify that the pipeline runs through build, test, Docker build, deploy
 2. if all stages are successful, Jenkins will built the Docker image and started the application container.
+3. docker ps 
+4. docker image ls
+# Access application locally
+1. curl http://ec2-ip:8080
+# Access application browser
+1. http://ec2-ip:8080
 # Workflow of Jenkins pipeline
 1. Developer pushes code
 2. Jenkins detects commit
 3. Performs Build, Test, Docker image, Deploy
 4. check jenkins logs to verify.
 # END
-
-
-
-
