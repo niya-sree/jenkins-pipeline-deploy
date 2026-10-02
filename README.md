@@ -48,7 +48,13 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 # Test the pipeline
 1. git add .
 2. git commit -m "Test Jenkins CI/CD pipeline"
-2. git push origin main
+3. git push origin main
+# Automate pipeline trigger
+1. Add webhook in repository webhooks
+2. repository --> settings --> webhooks --> add webhook
+3. Add payload url and conten type
+# Automate code checks by jenkins periodically
+1. Add pollSCM step in Jenkinsfile to tell jenkins check your Git repository periodically to see whether new commits were pushed.
 # verify the pipeline
 1. Then open the Jenkins dashboard and verify that the pipeline runs through build, test, Docker build, deploy
 2. if all stages are successful, Jenkins will built the Docker image and started the application container.
