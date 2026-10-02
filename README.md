@@ -29,7 +29,7 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 1. Add jenkins port in inbound rules in SG
 2. Add application host port in inbound rules in SG
 # Open Jenkins on the browser
-1. http://ec2-ip:jenkins-port
+1. http://ec2-ip:container-port
 # Get the initial administrator password with:
 1. sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 2. Copy that password into the Jenkins setup screen
@@ -63,9 +63,9 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 3. docker ps 
 4. docker image ls
 # Access application locally
-1. curl http://ec2-ip:8080
+1. curl http://ec2-ip:8081
 # Access application browser
-1. http://ec2-ip:8080
+1. http://ec2-ip:8081
 # Workflow of Jenkins pipeline
 1. Developer pushes code
 2. Triggers Jenkins Webhook
