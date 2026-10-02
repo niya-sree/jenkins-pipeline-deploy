@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo 'Running application tests...'
 
-                sh 'docker --rm web-app:latest npm test'
+                sh 'docker run --rm web-app:latest npm test'
             }
         }
 
