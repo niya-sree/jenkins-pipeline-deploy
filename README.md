@@ -49,10 +49,12 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 1. git add .
 2. git commit -m "Test Jenkins CI/CD pipeline"
 3. git push origin main
-# Automate pipeline trigger
+# Trigger the pipeline on every commit
 1. Add webhook in repository webhooks
 2. repository --> settings --> webhooks --> add webhook
-3. Add payload url and conten type
+3. Add payload url followed by /github-webhook/ and contet type: application/json
+4. Just the push event and save webhook
+5. Add build triggers: GitHub hook trigger for GITScm polling in jenkins pipeline
 # Automate code checks by jenkins periodically
 1. Add pollSCM step in Jenkinsfile to tell jenkins check your Git repository periodically to see whether new commits were pushed.
 # verify the pipeline
