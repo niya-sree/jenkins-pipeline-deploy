@@ -22,6 +22,14 @@ pipeline {
                 sh 'docker build -t nginx-app:latest .'
             }
         }
+        
+        stage('Test') {
+            steps {
+                echo 'Running application tests...'
+
+                sh 'docker --rm web-app:latest npm test'
+            }
+        }
 
         stage('Deploy') {
             steps {

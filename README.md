@@ -68,7 +68,8 @@ Set up a basic Jenkins pipeline to automate the process of building and deployin
 1. http://ec2-ip:8080
 # Workflow of Jenkins pipeline
 1. Developer pushes code
-2. Jenkins detects commit
-3. Performs Build, Test, Docker image, Deploy
-4. check jenkins logs to verify.
+2. Triggers Jenkins Webhook
+3. Webhook sends a request to Jenkins
+3. Jenkins triggers pipeline to performs Build, Test, Deploy
+4. Check console output to verify the deployment.
 # END
